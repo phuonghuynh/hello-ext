@@ -2,6 +2,7 @@ package com.me.hello;
 
 import com.me.hello.dto.UserDto;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,9 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/users")
 public class HomeController {
 
-   @RequestMapping(value = "/users.json", method = RequestMethod.GET, produces="application/json")
+   @RequestMapping(method = RequestMethod.GET)
    @ResponseBody
    public List<UserDto> home() throws IllegalAccessException, InstantiationException {
       System.out.println("HomeController: Passing through...");
@@ -29,5 +31,10 @@ public class HomeController {
       userDto.setEmail("a.1@example.com");
       users.add(userDto);
       return users;
+   }
+
+   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+   public void updateUser(@PathVariable String id, @PathVariable String name) {
+      System.out.println("id = " + id + ", name = " + name);
    }
 }

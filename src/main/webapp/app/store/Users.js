@@ -5,13 +5,18 @@ Ext.define('AM.store.Users', {
    proxy: {
       type: 'ajax',
       api: {
-         read: 'rest/users.json',
-         update: 'data/updateUsers.json'
+         read: 'rest/users',
+         update: 'rest/users'
       },
       reader: {
          type: 'json',
          root: 'users',
+         idProperty: 'id',
          successProperty: 'success'
+      },
+      writer: {
+         encode: false,
+         writeAllFields: true
       }
    }
 });
