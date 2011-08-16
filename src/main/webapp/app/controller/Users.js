@@ -25,6 +25,6 @@ Ext.define('AM.controller.Users', {
       var win = button.up('window'), form = win.down('form'), record = form.getRecord(), values = form.getValues();
       record.set(values);
       win.close();
-      this.getUsersStore().sync();
+      this.getStore('Users').sync();
    }
 });

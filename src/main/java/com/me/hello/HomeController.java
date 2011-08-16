@@ -2,10 +2,7 @@ package com.me.hello;
 
 import com.me.hello.dto.UserDto;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +31,15 @@ public class HomeController {
    }
 
    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-   public void updateUser(@PathVariable String id, @PathVariable String name) {
-      System.out.println("id = " + id + ", name = " + name);
+   @ResponseBody
+   public UserDto updateUser(@RequestBody UserDto userDto) {
+      System.out.println("id = " + userDto.getId());
+//      UserDto userDto = new UserDto();
+//      userDto.setId(id);
+//      userDto.setName(name);
+//      userDto.setEmail(email);
+      return userDto;
+//      users.add(userDto);
+//      return users;
    }
 }

@@ -1,6 +1,9 @@
 package com.me.hello.dto;
 
-public class UserDto {
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
+public class UserDto implements Serializable{
    private String id;
    private String name, email;
 

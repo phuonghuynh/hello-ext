@@ -25,8 +25,7 @@ Ext.define('AM.view.user.Edit', {
          action : 'save'
       }, {
          text : 'Cancel',
-         scope : this,
-         handler : this.close
+         scope : this
       } ];
 
       this.callParent(arguments);
