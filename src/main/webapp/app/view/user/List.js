@@ -11,18 +11,25 @@ Ext.define('AM.view.user.List', {
 
    title : 'All Users',
    columns: [
-      {header : 'Name', dataIndex : 'name', width: 150},
-      {header : 'Email', dataIndex : 'email', flex: true},
+      { header : 'Name', dataIndex : 'name', width: 150 },
+      { header : 'Email', dataIndex : 'email', flex: true },
       {
          xtype: 'actioncolumn',
-         width: 50,
+         width: 30,
+         align: 'center',
          items: [
             {
                icon: '/images/delete.gif',
                tooltip: 'Please delete me',
                handler: function(grid, rowIndex, colIndex) {
                   console.log("clicked on me!!!!");
-//                  var rec = store.getAt(rowIndex);
+                  var store = grid.getStore('Users');
+//                  var record = store.getAt(rowIndex);
+//                  record.destroy();
+//                  store.reload();
+                  store.removeAt(rowIndex);
+                  store.sync();
+//                  Ext.example.msg('remove', 'abc');
 //                  alert("Sell " + rec.get('company'));
                }
             }
