@@ -3,8 +3,10 @@ Ext.application({
    controllers: ['Users'],
    launch : function() {
       Ext.create('Ext.container.Viewport', {
-         layout : 'fit',
-         items : [ {xtype: 'userlist'} ]
+         layout : 'flex',
+         items : [ {xtype: 'userlist'} ],
+         width: 800,
+         height: 600
       });
    }
 });
