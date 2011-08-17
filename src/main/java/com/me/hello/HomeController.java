@@ -34,12 +34,6 @@ public class HomeController {
    @ResponseBody
    public UserDto updateUser(@RequestBody UserDto userDto) {
       System.out.println("id = " + userDto.getId());
-//      UserDto userDto = new UserDto();
-//      userDto.setId(id);
-//      userDto.setName(name);
-//      userDto.setEmail(email);
       return userDto;
-//      users.add(userDto);
-//      return users;
    }
 }
