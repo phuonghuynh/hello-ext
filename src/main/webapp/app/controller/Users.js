@@ -4,14 +4,14 @@ Ext.define('AM.controller.Users', {
    models : [ 'User' ],
    views : [ 'user.List', 'user.Edit' ],
 
-   init : function() {
+   init: function() {
       this.control({
          'userlist' : {
             itemdblclick : this.editUser
          },
 
-         'userlist actioncolumn item[action=destroy]': {
-            click: this.destroyUser
+         'userlist actioncolumn': {
+            click: this.onUserClickAction
          },
 
          'useredit button[action=save]' : {
@@ -32,17 +32,19 @@ Ext.define('AM.controller.Users', {
       this.getStore('Users').sync();
    },
 
-   destroyUser:function(grid, rowIndex, colIndex) {
-//      handler: function() {
-                  console.log("clicked on me!!!!");
-//                  var store = grid.getStore('Users');
-//                  var record = store.getAt(rowIndex);
-//                  record.destroy();
-//                  store.reload();
-//                  store.removeAt(rowIndex);
-//                  store.sync();
-//                  Ext.example.msg('remove', 'abc');
-//                  alert("Sell " + rec.get('company'));
-//               }
+   onUserClickAction: function(view, cell, rowIndex, colIndex, e) {
+      var m = e.getTarget().className.match(/\bact-(\w+)\b/);
+      if (m === null || m === undefined) {
+         return;
+      }
+
+      var action = m[1];
+      switch (action) {
+         case 'destroy':
+            var store = this.getStore('Users');
+            store.removeAt(rowIndex);
+            store.sync();
+            break;
+      }
    }
 });

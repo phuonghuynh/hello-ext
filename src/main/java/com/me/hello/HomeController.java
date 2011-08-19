@@ -47,6 +47,7 @@ public class HomeController {
    @ResponseBody
    public UserDto delete(@RequestBody UserDto userDto) {
       System.out.println("deleted id = " + userDto.getId());
+//      throw new RuntimeException("aaa");
       return userDto;
    }
 }
