@@ -42,8 +42,21 @@ Ext.define('AM.controller.Users', {
       switch (action) {
          case 'destroy':
             var store = this.getStore('Users');
-            store.removeAt(rowIndex);
-            store.sync();
+            var record = store.getAt(rowIndex);
+            record.destroy({
+               success: function() {
+                  console.log('destroyed an user');
+                  store.removeAt(rowIndex);
+               },
+               failure: function(record, operation) {
+                  console.log('destroyed an user not success');
+                  console.log(record);
+                  console.log(operation);
+               }
+            });
+//            var removes = store.getRemovedRecords();
+//            store.removeAt(rowIndex);
+//            store.sync();
             break;
       }
    }

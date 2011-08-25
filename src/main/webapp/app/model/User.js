@@ -10,5 +10,11 @@ Ext.define('AM.model.User', {
       writer: {
          type: 'json'
       }
+
+//      listeners: {
+//         exception: function(me, response, operation, options ) {
+//            console.log('exception is here');
+//         }
+//      }
    }
 });

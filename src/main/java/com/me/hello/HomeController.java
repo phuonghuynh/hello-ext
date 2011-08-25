@@ -13,7 +13,7 @@ public class HomeController {
 
    @RequestMapping(method = RequestMethod.GET)
    @ResponseBody
-   public List<UserDto> home(@RequestParam int page, @RequestParam int start, @RequestParam int limit) throws IllegalAccessException, InstantiationException {
+   public List<UserDto> home(@RequestParam int page, @RequestParam int start, @RequestParam int limit) {
       System.out.println("HomeController: Passing through..." + page);
       List<UserDto> users = new ArrayList<UserDto>();
       UserDto userDto = new UserDto();

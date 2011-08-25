@@ -8,5 +8,6 @@ Ext.application({
          width: 800,
          height: 600
       });
-   }
+   },
+   appFolder: 'app'
 });
