@@ -6,12 +6,12 @@ Ext.define('AM.controller.Users', {
 
    init: function() {
       this.control({
-         'userlist' : {
-            itemdblclick : this.editUser
-         },
+//         'userlist' : {
+//            itemdblclick : this.editUser
+//         },
 
          'userlist actioncolumn': {
-            click: this.onUserClickAction
+            click: this.handleUserClickAction
          },
 
          'useredit button[action=save]' : {
@@ -32,7 +32,7 @@ Ext.define('AM.controller.Users', {
       this.getStore('Users').sync();
    },
 
-   onUserClickAction: function(view, cell, rowIndex, colIndex, e) {
+   handleUserClickAction: function(view, cell, rowIndex, colIndex, e) {
       var m = e.getTarget().className.match(/\bact-(\w+)\b/);
       if (m === null || m === undefined) {
          return;

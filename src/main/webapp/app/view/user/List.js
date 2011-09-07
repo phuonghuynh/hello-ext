@@ -9,10 +9,23 @@ Ext.define('AM.view.user.List', {
       stripeRows: true
    },
 
+   selType: 'rowmodel',
+   plugins: [ Ext.create('Ext.grid.plugin.RowEditing', { clicksToMoveEditor: 1,autoCancel: false})],
+
    title : 'All Users',
    columns: [
-      { header : 'Name', dataIndex : 'name', width: 150 },
-      { header : 'Email', dataIndex : 'email', flex: true },
+      {
+         header : 'Name',
+         dataIndex : 'name',
+         width: 150,
+         editor: {allowBlank: false}
+      },
+      {
+         header : 'Email',
+         dataIndex : 'email',
+         flex: true,
+         editor: {allowBlank: false, vtype: 'email'}
+      },
       {
          xtype: 'actioncolumn',
          width: 30,
