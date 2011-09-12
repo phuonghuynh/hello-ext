@@ -1,5 +1,6 @@
 package com.me.hello;
 
+import com.me.hello.dto.RestResponseDto;
 import com.me.hello.dto.UserDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ public class HomeController {
 
    @RequestMapping(method = RequestMethod.GET)
    @ResponseBody
-   public List<UserDto> home(@RequestParam int page, @RequestParam int start, @RequestParam int limit) {
+   public RestResponseDto home(@RequestParam int page, @RequestParam int start, @RequestParam int limit) {
       System.out.println("HomeController: Passing through..." + page);
       List<UserDto> users = new ArrayList<UserDto>();
       UserDto userDto = new UserDto();
@@ -33,7 +34,8 @@ public class HomeController {
       userDto.setName("Name C");
       userDto.setEmail("a.1@example.com");
       users.add(userDto);
-      return users;
+
+      return ResponseFactory.fromList(true, users);
    }
 
    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

@@ -5,11 +5,14 @@ Ext.define('AM.model.User', {
       type: 'rest',
       url: '/rest/users',
       reader: {
-         type: 'json'
+         type: 'json',
+         root: 'results'
       },
       writer: {
          type: 'json'
-      }
+      },
+
+      successProperty: 'success'
 
 //      listeners: {
 //         exception: function(me, response, operation, options ) {
