@@ -6,3 +6,7 @@ tmp/
 .svn/
 *.iml
 WebContent/
+/target
+/.classpath
+/.project
+/.settings

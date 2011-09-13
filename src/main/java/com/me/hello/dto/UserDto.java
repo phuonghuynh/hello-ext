@@ -1,9 +1,9 @@
 package com.me.hello.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
-public class UserDto implements Serializable{
+public class UserDto implements Serializable {
+   private static final long serialVersionUID = 6308169298817767559L;
    private String id;
    private String name, email;
 

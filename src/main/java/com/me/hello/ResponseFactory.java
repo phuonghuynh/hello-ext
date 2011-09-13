@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ResponseFactory {
 
-   public static RestResponseDto fromList(boolean success, List list) {
+   public static RestResponseDto fromList(boolean success, List<?> list) {
       return new RestResponseDto(success, list);
    }
 }
