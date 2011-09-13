@@ -32,7 +32,7 @@ Ext.define('AM.view.user.List', {
          align: 'center',
          items: [
             {
-               icon: '/images/delete.gif',
+               icon: 'images/delete.gif',
                tooltip: 'Please delete me',
                iconCls:'act-destroy',
                handler: function(grid, rowIndex, colIndex) {
