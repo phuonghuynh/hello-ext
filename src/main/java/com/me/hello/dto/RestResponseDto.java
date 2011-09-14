@@ -1,13 +1,12 @@
 package com.me.hello.dto;
 
-
 public class RestResponseDto {
    private boolean success;
-   private Object results;
+   private Object result;
 
    public RestResponseDto(boolean success, Object results) {
       this.success = success;
-      this.results = results;
+      this.result = results;
    }
 
    public boolean getSuccess() {
@@ -18,11 +17,12 @@ public class RestResponseDto {
       this.success = success;
    }
 
-   public Object getResults() {
-      return results;
+   public Object getResult() {
+      return result;
    }
 
-   public void setResults(Object results) {
-      this.results = results;
+   public void setResult(Object result) {
+      this.result = result;
    }
+
 }

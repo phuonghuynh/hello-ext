@@ -10,7 +10,7 @@ Ext.define('AM.view.user.List', {
    },
 
    selType: 'rowmodel',
-   plugins: [ Ext.create('Ext.grid.plugin.RowEditing', { clicksToMoveEditor: 1,autoCancel: false})],
+   plugins: [ {ptype : 'cellediting', pluginId : 'cellEditor'}],
 
    title : 'All Users',
    columns: [

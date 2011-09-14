@@ -6,31 +6,12 @@ Ext.define('AM.controller.Users', {
 
    init: function() {
       this.control({
-//         'userlist' : {
-//            itemdblclick : this.editUser
-//         },
-
          'userlist actioncolumn': {
             click: this.handleUserClickAction
-         },
-
-         'useredit button[action=save]' : {
-            click : this.updateUser
          }
       });
    },
 
-   editUser : function(grid, record) {
-      var view = Ext.widget('useredit');
-      view.down('form').loadRecord(record);
-   },
-
-   updateUser : function(button) {
-      var win = button.up('window'), form = win.down('form'), record = form.getRecord(), values = form.getValues();
-      record.set(values);
-      win.close();
-      this.getStore('Users').sync();
-   },
 
    handleUserClickAction: function(view, cell, rowIndex, colIndex, e) {
       var m = e.getTarget().className.match(/\bact-(\w+)\b/);
@@ -43,20 +24,15 @@ Ext.define('AM.controller.Users', {
          case 'destroy':
             var store = this.getStore('Users');
             var record = store.getAt(rowIndex);
-            record.destroy({
-               success: function() {
-                  console.log('destroyed an user');
-                  store.removeAt(rowIndex);
-               },
-               failure: function(record, operation) {
-                  console.log('destroyed an user not success');
-                  console.log(record);
-                  console.log(operation);
-               }
-            });
-//            var removes = store.getRemovedRecords();
-//            store.removeAt(rowIndex);
-//            store.sync();
+            store.remove(record);
+//            record.getProxy().destroy({
+//               success: function() {
+//                  console.log('destroyed an user success');
+//               },
+//               failure: function(record, operation) {
+//                  console.log('destroyed an user failed');
+//               }
+//            });
             break;
       }
    }

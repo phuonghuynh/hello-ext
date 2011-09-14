@@ -40,16 +40,16 @@ public class HomeController {
 
    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
    @ResponseBody
-   public UserDto updateUser(@RequestBody UserDto userDto) {
+   public RestResponseDto updateUser(@RequestBody UserDto userDto) {
       System.out.println("id = " + userDto.getId());
-      return userDto;
+      return ResponseFactory.fromUserDto(true, userDto);
    }
 
    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
    @ResponseBody
-   public UserDto delete(@RequestBody UserDto userDto) {
+   public RestResponseDto delete(@RequestBody UserDto userDto) {
       System.out.println("deleted id = " + userDto.getId());
 //      throw new RuntimeException("aaa");
-      return userDto;
+      return ResponseFactory.fromUserDto(true, userDto);
    }
 }
